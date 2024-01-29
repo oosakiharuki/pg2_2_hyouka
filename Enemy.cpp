@@ -8,23 +8,22 @@ Enemy::Enemy() {
 }
 
 void Enemy::Update() {
-	if (LifeFlag == true)
-	{
-		pos.x += speedX;
-		pos.y += speedY;
-		if (pos.x > 1260) {
-			speedX = -10;
-		}
-		if (pos.x < 20) {
-			speedX = 10;
-		}
-		if (pos.y < 20) {
-			speedY = 10;
-		}
-		if (pos.y > 700) {
-			speedY = -10;
-		}
+
+	pos.x += speedX;
+	pos.y += speedY;
+	if (pos.x > 1260) {
+		speedX = -10;
 	}
+	if (pos.x < 20) {
+		speedX = 10;
+	}
+	if (pos.y < 20) {
+		speedY = 10;
+	}
+	if (pos.y > 700) {
+		speedY = -10;
+	}
+
 }
 
 void Enemy::Death() {
@@ -38,5 +37,8 @@ void Enemy::Respawn() {
 void Enemy::Draw() {
 	if (LifeFlag == true) {
 		Novice::DrawEllipse(pos.x, pos.y, radius, radius, 0.0f, RED, kFillModeSolid);
+	}
+	else {
+		Novice::DrawEllipse(pos.x, pos.y, radius, radius, 0.0f, 0xFFFF00FF, kFillModeSolid);
 	}
 }

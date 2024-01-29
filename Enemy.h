@@ -14,7 +14,7 @@ public:
 	int GetPosX() { return pos.x; }
 	int GetPosY() { return pos.y; }
 	int GetRadius() { return radius; }
-
+	bool GetLife() { return LifeFlag; }
 
 private:
 	Vector2 pos;

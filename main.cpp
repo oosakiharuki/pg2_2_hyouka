@@ -26,7 +26,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	bool isMissFlag = false;
 	bool RespawnFlag = false;
-	int timer[2] = { 50,50 };
+	int timer[2] = { 50,20 };
 
 	int Hp = 10;
 	
@@ -71,7 +71,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 			distEP = (EnemyPlayerX * EnemyPlayerX) + (EnemyPlayerY * EnemyPlayerY);
 			radiusEP = enemy->GetRadius() + player->GetRadius();
 			
-			if (distEP <= radiusEP * radiusEP) {
+			if (distEP <= radiusEP * radiusEP && enemy->GetLife() == true) {
 				player->Death();
 				isMissFlag = true;
 			}
@@ -101,7 +101,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 				Hp--;
 				enemy->Respawn();
 				RespawnFlag = false;
-				timer[1] = 50;
+				timer[1] = 20;
 			}
 			if (Hp == 0) {
 				seen = Clear;
